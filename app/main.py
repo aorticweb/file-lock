@@ -40,7 +40,7 @@ def encrypt(req: DataToEncrypt):
 @app.post("/decrypt", status_code=201)
 def decrypt(req: DataToEncrypt):
     """
-    Encrypt data using key
+    Decrypt data using key
     """
     cypher, ok = get_encryptor(req.cypher_type)
     if not ok:
