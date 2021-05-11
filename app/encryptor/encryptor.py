@@ -3,8 +3,14 @@ from enum import Enum
 
 
 class Encryptor:
-    def validate_key(self, key: str) -> Tuple[bool, str]:
-        return (True, "")
+    """
+    Encryptor Interface
+    """
+    def validate_key(self, key: str) -> Tuple[str, bool]:
+        """
+        Verify key requirements
+        """
+        return (key, True)
 
     def encrypt(self, plain: bytes, key: str) -> bytes:
         """

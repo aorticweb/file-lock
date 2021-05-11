@@ -32,7 +32,7 @@ def encrypt(req: DataToEncrypt):
     """
     cypher, ok = get_encryptor(req.cypher_type)
     if not ok:
-        raise HTTPException(status_code=491, detail=CYPHER_TYPE_ERR_MSG)
+        raise HTTPException(status_code=421, detail=CYPHER_TYPE_ERR_MSG)
     cypher_text = cypher.encrypt(req.data, req.key)
     return {"data": cypher_text}
 
@@ -44,7 +44,7 @@ def decrypt(req: DataToEncrypt):
     """
     cypher, ok = get_encryptor(req.cypher_type)
     if not ok:
-        raise HTTPException(status_code=491, detail=CYPHER_TYPE_ERR_MSG)
+        raise HTTPException(status_code=421, detail=CYPHER_TYPE_ERR_MSG)
     plain_text = cypher.decrypt(req.data, req.key)
     return {"data": plain_text}
 
